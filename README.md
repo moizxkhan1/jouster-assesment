@@ -2,6 +2,17 @@
 
 A FastAPI-based text analysis tool that processes unstructured text to extract summaries, metadata, sentiment, and keywords using OpenAI's structured outputs and persistent database storage.
 
+## Features (short)
+- LLM-powered summary + structured metadata (title, topics, sentiment) and in-house keyword extraction
+- Persistence in Postgres (SQLAlchemy + Alembic) with history listing and filters
+- REST API: POST /api/analyze, GET /api/history; Minimal web UI for submit, results, and history
+- Dockerized service with healthcheck; .env-driven config; basic logging middleware
+
+## Trade-offs / Missing (short)
+- No dedicated GET /search?topic=… endpoint (covered via history + filters only)
+- No auth/rate limiting; minimal error messages; limited input validation beyond basics
+- No batch processing; limited front-end polish; unit tests only (no e2e/integration)
+
 ## How to Run
 
 1. **Set up environment:**
