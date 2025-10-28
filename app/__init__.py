@@ -1,0 +1,3 @@
+"""
+Text Analysis FastAPI Application
+"""

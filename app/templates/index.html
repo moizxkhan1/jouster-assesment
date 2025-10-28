@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Analysis Tool</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Text Analysis Tool</h1>
+            <p>Analyze unstructured text to extract summaries, metadata, sentiment, and keywords</p>
+        </div>
+        
+        <form id="analysisForm" class="analysis-form">
+            <div class="form-group">
+                <label for="textInput">Enter your text to analyze:</label>
+                <textarea 
+                    id="textInput" 
+                    name="text" 
+                    placeholder="Paste your article, blog post, or any text content here..."
+                    required
+                >Artificial intelligence is revolutionizing the way we work and live. From smart assistants to autonomous vehicles, AI technologies are becoming increasingly sophisticated and integrated into our daily lives. While some people are excited about the potential benefits, others express concerns about job displacement and privacy. The key is to find a balance between innovation and responsible development.</textarea>
+            </div>
+            
+            <div class="options">
+                <div class="option">
+                    <input type="checkbox" id="includeKeywords" checked>
+                    <label for="includeKeywords">Extract Keywords</label>
+                </div>
+                <div class="option">
+                    <input type="checkbox" id="includeSentiment" checked>
+                    <label for="includeSentiment">Analyze Sentiment</label>
+                </div>
+            </div>
+            
+            <button type="submit" id="submitBtn" class="btn">Analyze Text</button>
+        </form>
+        
+        <div id="loading" class="loading" style="display: none;">
+            <p>Analyzing your text... This may take a few moments.</p>
+        </div>
+        
+        <div id="results" class="results">
+            <div class="result-section">
+                <h3>Summary</h3>
+                <div class="result-content">
+                    <p id="summary"></p>
+                </div>
+            </div>
+            
+            <div class="result-section">
+                <h3>Metadata</h3>
+                <div class="metadata-grid">
+                    <div class="metadata-item">
+                        <h4>Title</h4>
+                        <p id="title"></p>
+                    </div>
+                    <div class="metadata-item">
+                        <h4>Topics</h4>
+                        <p id="topics"></p>
+                    </div>
+                    <div class="metadata-item">
+                        <h4>Sentiment</h4>
+                        <p id="sentiment"></p>
+                    </div>
+                    <div class="metadata-item">
+                        <h4>Keywords</h4>
+                        <p id="keywords"></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="processing-time">
+                <p id="processingTime"></p>
+            </div>
+        </div>
+        
+        <div id="history" class="history">
+            <div class="history-header">
+                <h3>Analysis History</h3>
+                <button id="loadHistoryBtn" class="btn btn-secondary">Load History</button>
+            </div>
+            
+            <div class="history-filters">
+                <div class="filter-group">
+                    <input type="text" id="searchFilter" placeholder="Search in text, summary, title..." class="filter-input">
+                    <select id="sentimentFilter" class="filter-select">
+                        <option value="">All Sentiments</option>
+                        <option value="positive">Positive</option>
+                        <option value="negative">Negative</option>
+                        <option value="neutral">Neutral</option>
+                    </select>
+                    <input type="text" id="keywordFilter" placeholder="Filter by keyword..." class="filter-input">
+                    <button id="applyFiltersBtn" class="btn btn-filter">Apply Filters</button>
+                    <button id="clearFiltersBtn" class="btn btn-clear">Clear</button>
+                </div>
+            </div>
+            
+            <div id="historyContent" class="history-content">
+                <p class="history-placeholder">Click "Load History" to see previous analyses</p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/static/script.js"></script>
+</body>
+</html>
